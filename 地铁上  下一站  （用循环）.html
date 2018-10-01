@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+        padding: 0;
+        margin: 0;
+        }
+        .ys{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <button>下一站</button>
+    <ul>
+
+    </ul>
+    <script>
+    const ul = document.querySelector('ul');
+    const btn = document.querySelector('button');
+    let arr =['焦化厂','双合','欢乐谷','南楼梓庄','化工','百子湾','大郊亭','九龙山']
+    let li = '';
+    let num = 0;
+    for(let i =0;i<arr.length;i++){
+        li += `<li class="${i==0?'ys':''}">${arr[i]}</li>`
+    }
+    ul.innerHTML = li;
+
+    let lis = document.querySelectorAll('li');
+    btn.onclick = function(){
+        num++;
+        for(let j=0;j<arr.length;j++){
+            lis[j].className = '';
+        }
+        lis[num%arr.length].className = 'ys'    //  为什么这里用arr   和 lis  是一样的效果
+
+
+
+    }
+    </script>
+</body>
+</html>
